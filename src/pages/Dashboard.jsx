@@ -7,7 +7,14 @@ export default function Dashboard() {
     color: 'white',
     m: '10px',
     textAlign: 'center',
+    filter: 'blur(2px)',
+
+    ':hover': {
+      bg: 'blue.200',
+      color: 'black',
+    },
   };
+
   return (
     <Container as='Section' maxWidth='4xl' py='20px'>
       <Heading my='30px' p='10px'>
@@ -24,7 +31,7 @@ export default function Dashboard() {
         <Text color='white'>This is a box like DIV in css</Text>
       </Box>
 
-      <Box sx={boxStyles}>like styled Components</Box>
+      <Box sx={boxStyles}>Hello, Ninjas!</Box>
     </Container>
   );
 }
