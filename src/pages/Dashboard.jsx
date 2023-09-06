@@ -1,37 +1,53 @@
-import { Heading, Text, Container, Box } from '@chakra-ui/react';
+import { Heading, Text, Container, Box, SimpleGrid } from '@chakra-ui/react';
 
 export default function Dashboard() {
-  const boxStyles = {
-    p: '10px',
-    bg: 'purple.400',
-    color: 'white',
-    m: '10px',
-    textAlign: 'center',
-    filter: 'blur(2px)',
+  // const boxStyles = {
+  //   p: '10px',
+  //   bg: 'purple.400',
+  //   color: 'white',
+  //   m: '10px',
+  //   textAlign: 'center',
+  //   filter: 'blur(2px)',
 
-    ':hover': {
-      bg: 'blue.200',
-      color: 'black',
-    },
-  };
+  //   ':hover': {
+  //     bg: 'blue.200',
+  //     color: 'black',
+  //   },
+  // };
 
   return (
-    <Container as='Section' maxWidth='4xl' py='20px'>
-      <Heading my='30px' p='10px'>
-        Chakra UI Components
-      </Heading>
+    <SimpleGrid p='10px' spacing={10} minChildWidth='250px'>
+      <Box bg='white' h='200px' border='1px solid'></Box>
+      <Box bg='white' h='200px' border='1px solid'></Box>
+      <Box bg='white' h='200px' border='1px solid'></Box>
+      <Box bg='white' h='200px' border='1px solid'></Box>
 
-      <Text marginLeft='30px'>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nam, rem!</Text>
+      <Box bg='white' h='200px' border='1px solid'></Box>
+      <Box bg='white' h='200px' border='1px solid'></Box>
+      <Box bg='white' h='200px' border='1px solid'></Box>
+      <Box bg='white' h='200px' border='1px solid'></Box>
 
-      <Text ml='30px' color='blue.300' fontWeight='bold'>
-        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nam, rem!
-      </Text>
+      <Box bg='white' h='200px' border='1px solid'></Box>
+      <Box bg='white' h='200px' border='1px solid'></Box>
+      <Box bg='white' h='200px' border='1px solid'></Box>
+      <Box bg='white' h='200px' border='1px solid'></Box>
+    </SimpleGrid>
+    // <Container as='Section' maxWidth='4xl' py='20px'>
+    //   <Heading my='30px' p='10px'>
+    //     Chakra UI Components
+    //   </Heading>
 
-      <Box ml='30px' p='20px' bg='orange'>
-        <Text color='white'>This is a box like DIV in css</Text>
-      </Box>
+    //   <Text marginLeft='30px'>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nam, rem!</Text>
 
-      <Box sx={boxStyles}>Hello, Ninjas!</Box>
-    </Container>
+    //   <Text ml='30px' color='blue.300' fontWeight='bold'>
+    //     Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nam, rem!
+    //   </Text>
+
+    //   <Box ml='30px' p='20px' bg='orange'>
+    //     <Text color='white'>This is a box like DIV in css</Text>
+    //   </Box>
+
+    //   <Box sx={boxStyles}>Hello, Ninjas!</Box>
+    // </Container>
   );
 }
