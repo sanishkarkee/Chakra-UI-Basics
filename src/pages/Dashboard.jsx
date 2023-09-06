@@ -1,3 +1,6 @@
+// ----Lesson 4, Grid: type 2 using Grid component
+// ---- Condition: make side bar on left and content on right
+
 import { Heading, Text, Container, Box, SimpleGrid } from '@chakra-ui/react';
 
 export default function Dashboard() {
