@@ -1,58 +1,75 @@
 // ----Lesson 4, Grid: type 2 using Grid component
 // ----Lesson  Condition: make side bar on left and content on right
 
-import { Heading, Text, Container, Box, SimpleGrid } from '@chakra-ui/react';
+import { EditIcon, ViewIcon } from '@chakra-ui/icons';
+import {
+  Box,
+  Button,
+  Card,
+  CardBody,
+  CardFooter,
+  CardHeader,
+  Divider,
+  Flex,
+  HStack,
+  Heading,
+  SimpleGrid,
+  Text,
+} from '@chakra-ui/react';
+import { useLoaderData } from 'react-router-dom';
 
 export default function Dashboard() {
-  // const boxStyles = {
-  //   p: '10px',
-  //   bg: 'purple.400',
-  //   color: 'white',
-  //   m: '10px',
-  //   textAlign: 'center',
-  //   filter: 'blur(2px)',
-
-  //   ':hover': {
-  //     bg: 'blue.200',
-  //     color: 'black',
-  //   },
-  // };
+  const tasks = useLoaderData();
 
   return (
-    <SimpleGrid p='10px' spacing={10} minChildWidth='250px'>
-      <Box bg='white' h='200px' border='1px solid'>
-        <Text color={{ base: 'pink', md: 'blue', lg: 'green' }}>Hello</Text>
-      </Box>
-      <Box bg='white' h='200px' border='1px solid'></Box>
-      <Box bg='white' h='200px' border='1px solid'></Box>
-      <Box bg='white' h='200px' border='1px solid'></Box>
+    <SimpleGrid spacing={10} minChildWidth='300px'>
+      {/*1st ko task le taska ma data cha/chaina check garcha */}
+      {tasks &&
+        tasks.map((task) => (
+          <Card key={task.id}>
+            <CardHeader>
+              <Flex gap='5px'>
+                <Box w='50px' h='50px'>
+                  <Text>AV</Text>
+                </Box>
 
-      <Box bg='white' h='200px' border='1px solid'></Box>
-      <Box bg='white' h='200px' border='1px solid'></Box>
-      <Box bg='white' h='200px' border='1px solid'></Box>
-      <Box bg='white' h='200px' border='1px solid'></Box>
+                <Box>
+                  <Heading as='h3' size='sm'>
+                    {task.title}
+                  </Heading>
+                  <Text as='u'>By: {task.author}</Text>
+                </Box>
+              </Flex>
+            </CardHeader>
 
-      <Box bg='white' h='200px' border='1px solid'></Box>
-      <Box bg='white' h='200px' border='1px solid'></Box>
-      <Box bg='white' h='200px' border='1px solid'></Box>
-      <Box bg='white' h='200px' border='1px solid'></Box>
+            <CardBody color={'gray.500'}>
+              <Text>{task.description}</Text>
+            </CardBody>
+
+            <Divider color='gray.200' />
+
+            <CardFooter>
+              <HStack>
+                <Button colorScheme='pink' leftIcon={<ViewIcon />}>
+                  Watch
+                </Button>
+                <Button
+                  colorScheme='blue'
+                  variant='outline'
+                  leftIcon={<EditIcon />}
+                >
+                  Comment
+                </Button>
+              </HStack>
+            </CardFooter>
+          </Card>
+        ))}
     </SimpleGrid>
-    // <Container as='Section' maxWidth='4xl' py='20px'>
-    //   <Heading my='30px' p='10px'>
-    //     Chakra UI Components
-    //   </Heading>
-
-    //   <Text marginLeft='30px'>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nam, rem!</Text>
-
-    //   <Text ml='30px' color='blue.300' fontWeight='bold'>
-    //     Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nam, rem!
-    //   </Text>
-
-    //   <Box ml='30px' p='20px' bg='orange'>
-    //     <Text color='white'>This is a box like DIV in css</Text>
-    //   </Box>
-
-    //   <Box sx={boxStyles}>Hello, Ninjas!</Box>
-    // </Container>
   );
 }
+
+export const tasksLoader = async () => {
+  const res = await fetch('http://localhost:3000/tasks');
+
+  return res.json();
+};
