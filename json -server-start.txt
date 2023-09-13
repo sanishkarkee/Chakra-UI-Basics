@@ -1,0 +1,7 @@
+
+In git Bash
+
+npm install -g json-server
+
+
+json-server -w ./data/db.json
