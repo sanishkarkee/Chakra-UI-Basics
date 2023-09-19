@@ -1,3 +1,7 @@
+//Lesson 10: Toast Component
+//Lesson 10: Adding toast notification when logged out
+
+import { UnlockIcon } from '@chakra-ui/icons';
 import {
   Box,
   Button,
@@ -6,9 +10,24 @@ import {
   Heading,
   Spacer,
   Text,
+  useToast,
 } from '@chakra-ui/react';
 
 export default function Navbar() {
+  const toast = useToast();
+
+  const showToast = () => {
+    toast({
+      title: 'Logged Out',
+      description: 'Successfully logged out',
+      duration: 4000,
+      isClosable: true,
+      status: 'success', //info,error
+      position: 'top',
+      icon: <UnlockIcon />,
+    });
+  };
+
   return (
     <>
       <Flex as='nav' p='10px' alignItems='center'>
@@ -21,7 +40,9 @@ export default function Navbar() {
             M
           </Box>
           <Text>mario@netninja.com</Text>
-          <Button colorScheme='purple'>Logout</Button>
+          <Button colorScheme='purple' onClick={showToast}>
+            Logout
+          </Button>
         </HStack>
       </Flex>
 
