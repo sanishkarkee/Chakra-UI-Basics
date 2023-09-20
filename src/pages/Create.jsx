@@ -35,7 +35,7 @@ export default function Create() {
         <FormControl display='flex' alignItems='center' mb='40px'>
           <Checkbox name='isPriority' size='lg' colorScheme='purple' />
           <FormLabel mb='0px' ml='10px'>
-            Make this priority task.
+            Make this priority task..
           </FormLabel>
         </FormControl>
 
